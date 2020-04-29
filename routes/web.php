@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'Controller@index')->name('home');
+
+Route::get('/post/create',[
+  'uses'=>'PostsController@create',
+  'as' => 'post.create'
+]);
