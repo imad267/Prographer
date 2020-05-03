@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return view ('admin.categories.index')->with('categories',Category::all());
     }
 
     /**
@@ -25,7 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create')->with('categories', Category::all());
+        return View('admin.categories.create');
     }
 
     /**
@@ -36,16 +35,15 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $this->validate($request,[
-          'title' => 'required|max:255',
-          'image_url' =>'required|image',
-          'content' =>'required',
-          'category_id' =>'required'
+          'name'=>'required'
         ]);
 
-        dd($request->all());
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->route('categories');
     }
 
     /**
@@ -67,7 +65,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+          return view('admin.categories.edit')->with('category', $category);
     }
 
     /**
@@ -79,7 +79,12 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->name = $request->name;
+
+        $category->save();
+        return redirect()->route('categories');
     }
 
     /**
@@ -90,6 +95,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category=Category::find($id);
+        $category->delete();
+        return redirect()->route('categories');
     }
 }

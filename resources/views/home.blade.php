@@ -11,7 +11,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are welcome
                 </div>
-            </div> 
+            </div>
 @endsection
