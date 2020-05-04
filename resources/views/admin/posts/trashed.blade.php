@@ -18,7 +18,11 @@
             </th>
 
             <th>
-              Trash
+              Restore
+            </th>
+
+            <th>
+              Delete
             </th>
           </thead>
 
@@ -29,7 +33,10 @@
                 <td>{{$post->title}}</td>
                 <td>Edit</td>
                 <td>
-                  <a href="{{route('post.delete', $post->id)}}" class="btn btn-danger">Trash</a>
+                  <a href="{{route('post.restore', $post->id)}}" class="btn btn-success btn-sm">Restore</a>
+                </td>
+                <td>
+                  <a href="{{route('post.kill', $post->id)}}" class="btn btn-danger btn-sm">Delete</a>
                 </td>
               </tr>
 
