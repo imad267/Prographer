@@ -2,9 +2,18 @@
 
 namespace App\Http\Controllers;
 
+
+use Session;
+
+use App\Post;
+
 use App\Category;
 
+use Illuminate\Support\Str;
+
+
 use Illuminate\Http\Request;
+
 
 class PostsController extends Controller
 {
@@ -15,7 +24,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return View('admin.posts.index')->with('posts', Post::all());
     }
 
     /**
@@ -40,12 +49,28 @@ class PostsController extends Controller
 
         $this->validate($request,[
           'title' => 'required|max:255',
-          'image_url' =>'required|image',
+          'image' =>'required|image',
           'content' =>'required',
           'category_id' =>'required'
         ]);
 
-        dd($request->all());
+        $image = $request->image;
+
+        $image_new_name = time().$image->getClientOriginalName();
+
+        $image->move('uploads/posts', $image_new_name);
+
+        $post = Post::create([
+          'title' => $request->title,
+          'content' => $request->content,
+          'image' => 'uploads/posts/' . $image_new_name,
+          'category_id' => $request->category_id,
+          'slug' => str::slug($request->title)
+        ]);
+
+        Session::flash('success', 'Post created successfully.');
+
+        return redirect()->back();
     }
 
     /**
