@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
 </head>
 <body>
     <div id="app">
@@ -102,5 +103,13 @@
           </div>
         </main>
     </div>
+    <script src="{{asset('js/toaster.min.js')}}"></script>
+    <script>
+    @if(session('success'))
+      toastr.success("{{Session('success')}}")
+
+    @endif
+
+    </script>
 </body>
 </html>

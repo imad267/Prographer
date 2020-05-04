@@ -52,14 +52,24 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     'as' => 'posts.trashed'
   ]);
 
-  Route::get('/posts/kill/{id}',[
+  Route::get('/post/kill/{id}',[
     'uses' => 'PostsController@kill',
     'as' => 'post.kill'
   ]);
 
-  Route::get('/posts/restore/{id}',[
+  Route::get('/post/restore/{id}',[
     'uses' => 'PostsController@restore',
     'as' => 'post.restore'
+  ]);
+
+  Route::get('/posts/edit/{id}',[
+    'uses' => 'PostsController@edit',
+    'as' => 'post.edit'
+  ]);
+
+  Route::post('/post/update/{id}',[
+    'uses'=>'PostsController@update',
+    'as'=>'post.update'
   ]);
 
   Route::get('/posts',[
