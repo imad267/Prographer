@@ -4,21 +4,21 @@
 @include('admin.includes.errors')
   <div class="card">
     <div class="card-header">
-      Update Category: {{$category->name}}
+      Update Tag: {{$tag->tag}}
 
     </div>
 
     <div class="card-body">
-      <form action="{{route('category.update', $category->id)}}" method="post">
+      <form action="{{route('tag.update', $tag->id)}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" name="name" value="{{$category->name}}" class="form-control">
+          <label for="tag">Name</label>
+          <input type="text" name="tag" value="{{$tag->tag}}" class="form-control">
         </div>
         <div class="form-group">
           <div class="text-center">
             <button type="submit" class="btn btn-dark">
-              Update category
+              Update the tag
             </button>
 
           </div>
