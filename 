@@ -1,0 +1,29 @@
+[33mcommit daa2fc1d4e07dcf680886d744ca866b5eb2ccf68[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: imad zetouneh <imad.ez955@gmail.com>
+Date:   Tue May 5 02:53:47 2020 +0200
+
+    create CRUD for tags
+
+[33mcommit 1c756f7bcd919f18e2489d62e7543613e46935da[m
+Author: imad zetouneh <imad.ez955@gmail.com>
+Date:   Tue May 5 00:33:37 2020 +0200
+
+    create tags migration and set up the relationships between tags and posts
+
+[33mcommit 3a44a140498723bb53980a9453e7b2ad28765eac[m
+Author: imad zetouneh <imad.ez955@gmail.com>
+Date:   Tue May 5 00:16:20 2020 +0200
+
+    edit posts contorller to restor posts and update posts
+
+[33mcommit 21d0cc8e15516ffa2255c440fbf1505c8cac8dd1[m
+Author: imad zetouneh <imad.ez955@gmail.com>
+Date:   Mon May 4 16:19:39 2020 +0200
+
+    soft delete and hard delete posts
+
+[33mcommit 5d01bf038419213ba959e776f2068214ea3aa1a0[m
+Author: imad zetouneh <imad.ez955@gmail.com>
+Date:   Mon May 4 05:47:46 2020 +0200
+
+    Update posts controller to store at data base and create a post view at the client

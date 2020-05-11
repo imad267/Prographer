@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function(){
+  return App\Tag::find(5)->posts; 
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
