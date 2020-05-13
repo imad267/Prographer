@@ -37,14 +37,15 @@ class PostsController extends Controller
     {
 
       $categories= Category::all();
+      $tags = Tag::all();
 
-      if($categories->count()==0){
-        Session::flash('info', 'you must have at least one category to create a new post');
+      if($categories->count()==0 || $tags->count()==0){
+        Session::flash('info', 'you must have at least one category or tag to create a new post');
         return redirect()->back();
       }
 
 
-        return view('admin.posts.create')->with('categories', $categories)->with('tags', Tag::all());
+        return view('admin.posts.create')->with('categories', $categories)->with('tags', $tags);
     }
 
     /**
